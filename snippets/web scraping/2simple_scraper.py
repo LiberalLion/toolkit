@@ -6,9 +6,8 @@ def download_page(url):
 
 def download_and_save_page(url, file):
     html_code = urlopen(url).read()#.decode('utf-8')
-    f = open(file, 'wb')
-    f.write(html_code)
-    f.close()
+    with open(file, 'wb') as f:
+        f.write(html_code)
     return html_code
 
 def extract_links(page):
